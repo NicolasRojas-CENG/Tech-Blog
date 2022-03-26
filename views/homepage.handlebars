@@ -1,0 +1,12 @@
+  {{#each posts as |post|}}
+  <section class="card">
+    <div class="card-title">
+      <h3 class="Title">{{post.title}}</h3>
+      <p>Posted by {{post.user.username}} on {{post.created_at}}</p>
+    </div>
+    <div class="card-content">
+      <p>{{post.content}}</p>
+      <a href="/post/{{post.id}}">{{post.comments.length}} comment(s)</a>
+    </div>
+  </section>
+  {{/each}}

@@ -1,0 +1,90 @@
+* {
+  box-sizing: border-box;
+}
+
+body,
+html {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  font-family: sans-serif;
+  background-color: #141313;
+  color: rgb(200, 164, 45);
+}
+
+header {
+  background: rgb(70, 68, 68);
+  color: #ebb521;
+  display: flex;
+  justify-content: space-between;
+}
+
+header a {
+  text-decoration: none;
+  color: #6e540b;
+  font-weight: bold;
+  transition: color 0.1s;
+}
+
+header aside h1 a {
+  font-size: 3rem;
+  background-color: rgba(51, 46, 46, 0.459);
+  padding: 15px;
+  border-radius: 20px 35%;
+  margin-left: 50px;
+  display: block;
+  text-align: center;
+}
+main {
+  display: block;
+}
+
+#nav {
+  display: flex;
+  align-items: center;
+}
+
+section h2 {
+  padding: 0 1.5rem;
+}
+
+a:hover {
+  color: #f5b60a;
+}
+
+.card {
+  display: block;
+  width: 75%;
+  margin: 25px auto;
+}
+
+.card-title {
+  background-color: #f5b60aad;
+  display: flex;
+  color: #2e2d2d;
+  padding-left: 10px;
+}
+
+.card-title h3 {
+  font-size: 1.5rem;
+}
+
+.title {
+  font-size: 16px;
+}
+
+.card-content {
+  border-width: 2px;
+  border-color: #f5b60aad;
+  border-style: solid;
+  text-align: center;
+}
+
+.card-content a {
+  text-decoration: none;
+  color: rgb(200, 164, 45);
+}
+
+.card-content a:hover {
+  color: #6e540b;
+}
