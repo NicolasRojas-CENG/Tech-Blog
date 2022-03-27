@@ -19,7 +19,7 @@ header {
   justify-content: space-between;
 }
 
-header a {
+a {
   text-decoration: none;
   color: #6e540b;
   font-weight: bold;
@@ -35,6 +35,11 @@ header aside h1 a {
   display: block;
   text-align: center;
 }
+
+header aside h1 a:hover {
+  background-color: rgba(51, 46, 46, 0.712);
+}
+
 main {
   display: block;
 }
@@ -65,10 +70,6 @@ a:hover {
   padding-left: 10px;
 }
 
-.card-title h3 {
-  font-size: 1.5rem;
-}
-
 .title {
   font-size: 16px;
 }
@@ -87,4 +88,50 @@ a:hover {
 
 .card-content a:hover {
   color: #6e540b;
+}
+
+form {
+  display: block;
+  width: 100%;
+  margin: 25px auto;
+  font-size: 2rem;
+}
+
+.form-title {
+  font-size: 2rem;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+form div {
+  display: grid;
+  margin: 15px 20px;
+  background-color: #2e2d2d;
+  text-align: left;
+  border-radius: 20px;
+}
+
+form div label {
+  padding-left: 20px;
+}
+
+form div input {
+  font-size: 3rem;
+  background-color: #6e540b;
+  color: white;
+}
+
+form div input:focus {
+  background-color: #ebb521;
+}
+
+form button {
+  background-color: rgba(233, 222, 76, 0.205);
+  border-radius: 0 0 20px 20px;
+  font-size: 2rem;
+}
+
+button:hover {
+  background-color: rgba(233, 223, 76, 0.685);
+  cursor: pointer;
 }
