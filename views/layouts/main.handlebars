@@ -13,9 +13,14 @@
             <aside>
                 <h1><a href="/">Tech Blog</a></h1>
             </aside>
+            {{#if session.loggedIn}}
+            <section class="user">
+                <p>Welcome {{user.username}}</p>
+            </section>
+            {{/if}}
             <section id="nav">
                 <h2><a href="/">Dashboard</a></h2>
-                {{#if sess.login}}
+                {{#if session.loggedIn}}
                 <h2><a href="/logout">Logout</a></h2>
                 {{else}}
                 <h2><a href="/login">Login</a></h2>

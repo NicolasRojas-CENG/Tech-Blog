@@ -44,6 +44,11 @@ main {
   display: block;
 }
 
+.user {
+  align-items: center;
+  font-size: 2rem;
+}
+
 #nav {
   display: flex;
   align-items: center;
