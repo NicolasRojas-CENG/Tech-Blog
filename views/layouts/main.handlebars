@@ -13,14 +13,14 @@
             <aside>
                 <h1><a href="/">Tech Blog</a></h1>
             </aside>
-            {{#if session.loggedIn}}
+            {{#if loggedIn}}
             <section class="user">
                 <p>Welcome {{user.username}}</p>
             </section>
             {{/if}}
             <section id="nav">
                 <h2><a href="/">Dashboard</a></h2>
-                {{#if session.loggedIn}}
+                {{#if loggedIn}}
                 <h2><a href="/logout">Logout</a></h2>
                 {{else}}
                 <h2><a href="/login">Login</a></h2>
@@ -33,6 +33,9 @@
     <footer>
         Thanks for visiting!
     </footer>
+    {{#if loggedIn}}
+        <script src="/javascript/logout.js"></script>
+    {{/if}}
 </body>
 
 </html>

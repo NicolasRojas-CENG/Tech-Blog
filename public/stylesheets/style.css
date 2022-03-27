@@ -140,3 +140,10 @@ button:hover {
   background-color: rgba(233, 223, 76, 0.685);
   cursor: pointer;
 }
+
+/* Comment view */
+.commentMeta {
+  font-size: 2rem;
+  padding: 10px;
+  text-align: left;
+}
