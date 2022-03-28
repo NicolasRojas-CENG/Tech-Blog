@@ -5,7 +5,7 @@
     </div>
     <div class="card-content">
         {{post.vote_count}} point(s) by {{post.user.username}} on
-        {{post.created_at}}
+        {{format_date post.created_at}}
         |
         <a href="/post/{{post.id}}">{{post.comments.length}} comment(s)</a>
         {{#if loggedIn}}
@@ -28,7 +28,7 @@
     <div class="comments">
     {{#each post.comments}}
         <p class="card-title commentMeta">
-        {{user.username}} on {{created_at}}
+        {{user.username}} on {{format_date created_at}}
         </p>
         <div class="card-content">
         {{comment_text}}
@@ -38,6 +38,5 @@
     </div>
 </section>
 {{#if loggedIn}}
-<script src="/javascript/comment.js"></script>
-<script src="/javascript/upvote.js"></script>
+<script src="/javascripts/comment.js"></script>
 {{/if}}
