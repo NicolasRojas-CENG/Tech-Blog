@@ -73,6 +73,7 @@ a:hover {
   display: flex;
   color: #2e2d2d;
   padding-left: 10px;
+  justify-content: space-evenly;
 }
 
 .title {
