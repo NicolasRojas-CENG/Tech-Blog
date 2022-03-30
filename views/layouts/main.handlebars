@@ -17,16 +17,11 @@
             <section class="user">
                 <p>Welcome {{session.username}}</p>
             </section>
-            <section id="nav">
-                <h2><a href="/dashboard">Dashboard</a></h2>
-                <h2><a id="logout">Logout</a></h2>
-            </section>
-            {{else}}
+            {{/if}}
             <section id="nav">
                 <h2><a href="/login">Dashboard</a></h2>
                 <h2><a href="/login">Login</a></h2>
             </section>
-            {{/if}}
     </header>
     <main>
         {{{ body }}}
