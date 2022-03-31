@@ -16,7 +16,19 @@ async function signupFormHandler(event) {
       });
 
       if (response.ok) {
-        document.location.replace('/');
+        const response = await fetch('/api/users/login', {
+            method: 'post',
+            body: JSON.stringify({
+              email,
+              password
+            }),
+            headers: { 'Content-Type': 'application/json' }
+          });
+          if (response.ok) {
+            document.location.replace('/dashboard');
+          } else {
+            alert(response.statusText);
+          }
       } else {
         alert(response.statusText);
       }
