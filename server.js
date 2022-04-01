@@ -12,11 +12,15 @@ const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const sess = {
   secret: 'Session.',
   cookie: {},
-  resave: false,
+  resave: true,
+  rolling: true,
   saveUninitialized: true,
   store: new SequelizeStore({
     db: sequelize
-  })
+  }),
+  cookie: {
+    expires: 30 * 1000
+}
 };
 
 app.use(session(sess));
