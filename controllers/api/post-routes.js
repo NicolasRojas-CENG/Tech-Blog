@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { Post, User } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-// get all users
+//Get all post.
 router.get('/', (req, res) => {
   Post.findAll({
     attributes: ['id', 'content', 'title', 'created_at'],
@@ -20,7 +20,7 @@ router.get('/', (req, res) => {
       res.status(500).json(err);
     });
 });
-
+//Get a specific post.
 router.get('/:id', (req, res) => {
   Post.findOne({
     where: {
@@ -46,7 +46,7 @@ router.get('/:id', (req, res) => {
       res.status(500).json(err);
     });
 });
-
+//Post a post if logged in.
 router.post('/', withAuth, (req, res) => {
   // expects {title: 'Taskmaster goes public!', post_url: 'https://taskmaster.com/press', user_id: 1}
   Post.create({
@@ -59,7 +59,7 @@ router.post('/', withAuth, (req, res) => {
       res.status(500).json(err);
     });
 });
-
+//Update a post if logged in.
 router.put('/:id', withAuth, (req, res) => {
   Post.update(req.body,
     {
@@ -80,7 +80,7 @@ router.put('/:id', withAuth, (req, res) => {
       res.status(500).json(err);
     });
 });
-
+//Delete a post if logged in.
 router.delete('/:id', withAuth, (req, res) => {
   Post.destroy({
     where: {

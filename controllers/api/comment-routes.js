@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { Post, User, Comment } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-// get all users
+//Get all comments.
 router.get('/', (req, res) => {
     Comment.findAll({
         attributes: ['id', 'comment_text', 'post_id', 'user_id'],
@@ -20,11 +20,11 @@ router.get('/', (req, res) => {
     })
     .then(dbCommentData => res.json(dbCommentData))
     .catch(err => {
-      console.log(err);
-      res.status(500).json(err);
+        console.log(err);
+        res.status(500).json(err);
     });
 });
-
+//Get a specific comment.
 router.get('/:id', (req, res) => {
     Comment.findOne({
         where: {
@@ -54,9 +54,8 @@ router.get('/:id', (req, res) => {
         res.status(500).json(err);
     });
 });
-
+//Post a comment if logged in.
 router.post('/', withAuth, (req, res) => {
-  // expects {title: 'Taskmaster goes public!', post_url: 'https://taskmaster.com/press', user_id: 1}
   Comment.create({
         comment_text: req.body.comment_text,
         post_id: req.body.post_id,
@@ -68,7 +67,7 @@ router.post('/', withAuth, (req, res) => {
         res.status(500).json(err);
     });
 });
-
+//Update a comment if logged in.
 router.put('/:id', withAuth, (req, res) => {
     Comment.update(req.body,
     {
@@ -88,7 +87,7 @@ router.put('/:id', withAuth, (req, res) => {
         res.status(500).json(err);
     });
 });
-
+//Delete a comment if logged in.
 router.delete('/:id', withAuth, (req, res) => {
     Comment.destroy({
         where: {
@@ -96,15 +95,15 @@ router.delete('/:id', withAuth, (req, res) => {
         }
     })
     .then(dbCommentData => {
-      if (!dbCommentData) {
-        res.status(404).json({ message: 'No comment found with this id' });
-        return;
-      }
-      res.json(dbCommentData);
+        if (!dbCommentData) {
+            res.status(404).json({ message: 'No comment found with this id' });
+            return;
+        }
+        res.json(dbCommentData);
     })
     .catch(err => {
-      console.log(err);
-      res.status(500).json(err);
+        console.log(err);
+        res.status(500).json(err);
     });
 });
 

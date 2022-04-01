@@ -10,17 +10,17 @@ const sequelize = require('./config/connection');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 const sess = {
-  secret: 'Session.',
-  cookie: {},
-  resave: true,
-  rolling: true,
-  saveUninitialized: true,
-  store: new SequelizeStore({
-    db: sequelize
-  }),
-  cookie: {
-    expires: 30 * 1000
-}
+    secret: 'Session.',
+    cookie: {},
+    resave: true,
+    rolling: true,
+    saveUninitialized: true,
+    store: new SequelizeStore({
+        db: sequelize
+    }),
+    cookie: {
+        expires: 30 * 1000
+    }
 };
 
 app.use(session(sess));
@@ -39,5 +39,5 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(require('./controllers/'));
 
 sequelize.sync({ force: false }).then(() => {
-  app.listen(PORT, () => console.log('Now listening'));
+    app.listen(PORT, () => console.log('Now listening'));
 });

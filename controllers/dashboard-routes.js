@@ -3,10 +3,10 @@ const sequelize = require('../config/connection');
 const { Post, User, Comment } = require('../models');
 const withAuth = require('../utils/auth');
 
+//What to show on the dashboard.
 router.get('/', withAuth, (req, res) => {
     Post.findAll({
         where: {
-            // use the ID from the session
             user_id: req.session.user_id
         },
         attributes: [
@@ -30,7 +30,6 @@ router.get('/', withAuth, (req, res) => {
             }
         ]
     }).then(dbPostData => {
-        // serialize data before passing to template
         const posts = dbPostData.map(post => post.get({ plain: true }));
         res.render('dashboard', { posts, loggedIn: true });
     }).catch(err => {
@@ -38,45 +37,41 @@ router.get('/', withAuth, (req, res) => {
         res.status(500).json(err);
     });
 });
-
+//Allow editing if logged in.
 router.get('/edit/:id', withAuth, (req, res) => {
     Post.findByPk(req.params.id, {
-      attributes: [
-        'id',
-        'content',
-        'title',
-        'created_at',
-      ],
-      include: [
+        attributes: [
+            'id',
+            'content',
+            'title',
+            'created_at',
+        ],
+        include: [
         {
-          model: Comment,
-          attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
-          include: {
-            model: User,
-            attributes: ['username']
-          }
+            model: Comment,
+            attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+            include: {
+                model: User,
+                attributes: ['username']
+            }
         },
         {
-          model: User,
-          attributes: ['username']
-        }
-      ]
-    })
-      .then(dbPostData => {
+            model: User,
+            attributes: ['username']
+        }]
+    }).then(dbPostData => {
         if (dbPostData) {
-          const post = dbPostData.get({ plain: true });
-
-          res.render('edit-post', {
-            post,
-            loggedIn: true
-          });
+            const post = dbPostData.get({ plain: true });
+            res.render('edit-post', {
+                post,
+                loggedIn: true
+            });
         } else {
-          res.status(404).end();
+            res.status(404).end();
         }
-      })
-      .catch(err => {
+    }).catch(err => {
         res.status(500).json(err);
-      });
-  });
+    });
+});
 
 module.exports = router;
