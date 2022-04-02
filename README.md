@@ -42,7 +42,16 @@ A web blog for all things tech. Users can signup/login to voice their opinions o
 - Added auth protection to routes.
 - Added editing/deleting logic for posts.
 # <a name="Preview"> Site/App Preview </a>
-I will add this later.
+Home Preview:
+![Home preview](src/images/home_view.PNG)
+Login Preview:
+![Login preview](src/images/login_view.PNG)
+Signup Preview:
+![Signup preview](src/images/signup_view.PNG)
+Dashboard Preview:
+![Dashboard preview](src/images/dashboard_view.PNG)
+Post Preview:
+![Dashboard preview](src/images/post_view.PNG)
 # <a name="Deployed"> Deployed Site/App </a>
 https://eltiko-techblog.herokuapp.com/
 # <a name="Questions"> Questions </a>
