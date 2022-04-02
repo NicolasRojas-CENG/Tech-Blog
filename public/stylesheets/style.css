@@ -12,6 +12,7 @@ html {
   color: rgb(200, 164, 45);
 }
 
+/* NavBar Style. */
 header {
   background: rgb(70, 68, 68);
   color: #ebb521;
@@ -62,6 +63,7 @@ a:hover {
   color: #f5b60a;
 }
 
+/* Card Style. */
 .card {
   display: block;
   width: 75%;
@@ -85,6 +87,7 @@ a:hover {
   border-color: #f5b60aad;
   border-style: solid;
   text-align: center;
+  font-size: 1.5rem;
 }
 
 .card-content a {
@@ -96,6 +99,7 @@ a:hover {
   color: #6e540b;
 }
 
+/* Form views. */
 form {
   display: block;
   width: 100%;
@@ -142,7 +146,20 @@ button:hover {
   cursor: pointer;
 }
 
-/* Comment view */
+textarea {
+  font-size: 1.5rem;
+}
+
+/* Comment View. */
+.comment-title {
+  background-color: #f5b60aad;
+  display: flex;
+  color: #2e2d2d;
+  padding-left: 10px;
+  justify-content: space-evenly;
+  font-size: 1.7rem;
+}
+
 .commentMeta {
   font-size: 2rem;
   padding: 10px;
